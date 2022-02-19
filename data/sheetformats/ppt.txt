@@ -1,0 +1,108 @@
+macro puyo_stamps
+{
+	stamp top
+	stamp bottom
+	stamp vert
+	stamp left
+	stamp bottomright
+	stamp topright
+	stamp vertright
+	stamp right
+	stamp bottomleft
+	stamp topleft
+	stamp vertleft
+	stamp horiz
+	stamp downhoriz
+	stamp uphoriz
+	stamp cross
+}
+
+set puyo_red
+{
+	goto 68 0
+	stamp_def 72 68 x
+	do puyo_stamps
+
+	def single 0 0 68 68
+	def double 0 356 68 145
+	def triple 356 356 144 144
+	def giant 140 500 144 144
+
+	def glow 0 644 68 72
+	def blob 1076 428 72 72
+}
+
+set puyo_green
+{
+	goto 68 68
+	stamp_def 72 72 x
+	do puyo_stamps
+
+	def single 0 68 68 68
+	def double 68 356 72 145
+	def triple 500 356 144 144
+	def giant 284 500 144 144
+	
+	def glow 68 644 72 72
+	def blob 1004 500 72 72
+}
+
+set puyo_blue
+{
+	goto 68 68
+	stamp_def 72 72 x
+	do puyo_stamps
+
+	def single 0 140 68 68
+	def double 140 356 72 145
+	def triple 644 356 144 144
+	def giant 428 500 144 144
+	
+	def glow 140 644 72 72
+	def blob 1076 500 72 72
+}
+
+set puyo_yellow
+{
+	goto 68 68
+	stamp_def 72 72 x
+	do puyo_stamps
+
+	def single 0 212 68 68
+	def double 212 356 72 145
+	def triple 798 356 144 144
+	def giant 572 500 144 144
+	
+	def glow 212 644 72 72
+	def blob 1004 572 72 72
+}
+
+set puyo_purple
+{
+	goto 68 68
+	stamp_def 72 72 x
+	do puyo_stamps
+
+	def single 0 284 68 68
+	def double 284 356 72 145
+	def triple 932 356 144 144
+	def giant 716 500 144 144
+	
+	def glow 284 644 72 72
+	def blob 1076 572 72 72
+}
+
+set garbage
+{
+	goto 1148 788
+	stamp_def -72 72 x
+	stamp small
+	stamp large
+	stamp rock
+	stamp star
+	stamp moon
+	stamp crown
+
+	def giant 0 500 140 144
+	def comet 860 500 144 144
+}

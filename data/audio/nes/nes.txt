@@ -1,0 +1,43 @@
+
+levelup lvlup
+lose gameover
+
+clear (pick=first)
+{
+	[lines>4] clear4
+	clear
+}
+
+allclear perfectclear
+
+lock lock
+rotleft rotright rotate
+movleft movright move
+
+mus_bg (pick=first)
+{
+	[from=mus1f] mus1
+	[from=mus2f] mus2
+	[from=mus3f] mus3
+
+	(pick=shuffle)
+	{
+		mus1
+		mus2
+		mus3
+	}
+}
+
+mus_danger (pick=first)
+{
+	[from=mus1] mus1f
+	[from=mus2] mus2f
+	[from=mus3] mus3f
+
+	(pick=shuffle)
+	{
+		mus1f
+		mus2f
+		mus3f
+	}
+}

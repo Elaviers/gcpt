@@ -1,0 +1,8 @@
+[SearchableFiles.include]
+*
+
+[SearchableFiles.ignore]
+bin/
+*.pdb
+*.exe
+*.dll

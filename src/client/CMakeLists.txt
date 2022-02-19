@@ -1,0 +1,124 @@
+project(client)
+gcpt_shared_set_source_groups()
+
+set(SOURCES
+    client.cpp
+    client_state.cpp
+    gl.cpp
+    gl_context.cpp
+    gl_cubemap.cpp
+    gl_framebuffer.cpp
+    gl_meshrenderer.cpp
+    gl_program.cpp
+    gl_texture.cpp
+    input_manager.cpp
+    material.cpp
+	material_grid.cpp
+	material_manager.cpp
+	material_sprite.cpp
+	material_spritesheet.cpp
+	material_surface.cpp
+    mesh_renderer.cpp
+    main.cpp
+    render_cmd.cpp
+    render_entry.cpp
+    render_queue.cpp
+    skybox.cpp
+    sound.cpp
+	sound_clip.cpp
+	sound_manager.cpp
+	sound_sampler.cpp
+	sound_session.cpp
+	sound_utils.cpp
+    sound_wav.cpp
+    soundconfig_manager.cpp
+	soundconfig_parse.cpp
+    texture.cpp
+    texture_manager.cpp
+    ui_button.cpp
+    ui_checkbox.cpp
+    ui_colour.cpp
+    ui_combobox.cpp
+    ui_container.cpp
+    ui_element.cpp
+    ui_errordialog.cpp
+    ui_label.cpp
+    ui_listbox.cpp
+    ui_mainmenu.cpp
+    ui_menubutton.cpp
+    ui_panel.cpp
+    ui_rect.cpp
+    ui_settings.cpp
+    ui_splitter.cpp
+    ui_tab_book.cpp
+    ui_textbox.cpp
+    ui_toolbar.cpp
+    window.cpp
+    window_win.cpp
+)
+
+set(HEADERS
+    client.h
+    client_state.h
+    gl.h
+    gl_context.h
+    gl_cubemap.h
+    gl_framebuffer.h
+    gl_meshrenderer.h
+    gl_program.h
+    gl_texture.h
+    input_manager.h
+    material.h
+	material_grid.h
+	material_manager.h
+	material_param.h
+	material_sprite.h
+	material_spritesheet.h
+	material_surface.h
+    mesh_renderer.h
+    render_channels.h
+    render_cmd.h
+    render_entry.h
+    render_param.h
+    render_queue.h
+    skybox.h
+    sound.h
+	sound_clip.h
+    sound_io.h
+    sound_manager.h
+	sound_sampler.h
+	sound_session.h
+	sound_utils.h
+	soundconfig_manager.h
+    texture.h
+    texture_manager.h
+    ui_button.h
+    ui_checkbox.h
+    ui_colour.h
+    ui_combobox.h
+    ui_container.h
+    ui_element.h
+    ui_errordialog.h
+    ui_label.h
+    ui_listbox.h
+    ui_mainmenu.h
+    ui_menubutton.h
+    ui_panel.h
+    ui_rect.h
+    ui_settings.h
+    ui_splitter.h
+    ui_tab_book.h
+    ui_text_button.h
+    ui_textbox.h
+    ui_toolbar.h
+    window.h
+    window_win.h
+)
+
+find_package(OpenGL 4.1 REQUIRED)
+
+add_executable(${PROJECT_NAME} WIN32)
+target_sources(${PROJECT_NAME} PUBLIC ${SOURCES} ${HEADERS})
+target_link_libraries(${PROJECT_NAME} gcpt::shared OpenGL::GL Propsys)
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME gcpt VS_DEBUGGER_COMMAND_ARGUMENTS "-fileroot \"${CMAKE_SOURCE_DIR}\"")
+target_compile_definitions(${PROJECT_NAME} PUBLIC BUILD_CLIENT=1 BUILD_SERVER=1)

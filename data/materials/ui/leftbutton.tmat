@@ -1,0 +1,5 @@
+grid
+texture ui/leftbutton
+//rows 32 1984 32
+rows 2048
+columns 32 1342 674
