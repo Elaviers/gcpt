@@ -159,7 +159,7 @@ public:
 			for (size_t i = 0; i < count; ++i)
 				new (_memory.GetBase() + idx + i) T(items[i]);
 		}
-		else throw NoSpaceAvailableException;
+		else throw NoSpaceAvailableException();
 	}
 
 	void AddMultiple(const T* items, size_t count) { InsertMultiple(_size, items, count); }

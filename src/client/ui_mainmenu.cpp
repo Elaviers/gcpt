@@ -11,7 +11,7 @@ struct MainMenu
 	UI_MenuButton btn_quit;
 };
 
-MainMenu g_menu;
+static MainMenu g_menu;
 
 void OnPressed_Play(UIButton&)
 {
@@ -28,7 +28,7 @@ void OnPressed_Quit(UIButton&)
 	g_engine.Stop();
 }
 
-void MenuButton_Init(UI_MenuButton& btn, const auto& font, int index)
+static void MenuButton_Init(UI_MenuButton& btn, const auto& font, int index)
 {
 	btn.SetParent(&g_menu.container);
 	btn.SetFont(font);
@@ -46,7 +46,7 @@ void MenuButton_Init(UI_MenuButton& btn, const auto& font, int index)
 	btn.ColourMod_Hover().SetPrimary(EColourModifyMode::SET, Colour::Red);
 }
 
-void MainMenu_Init()
+static void MainMenu_Init()
 {
 	AssertM(g_engine.IsRunning(), "MainMenu_Init: engine not running");
 
