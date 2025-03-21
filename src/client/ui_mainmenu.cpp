@@ -14,6 +14,8 @@ struct MainMenu
 
 static MainMenu g_menu;
 
+void MainMenu_Open();
+
 void OnPressed_Play(UIButton&)
 {
 
@@ -25,6 +27,7 @@ void OnPressed_Settings(UIButton&)
 	//g_engine.ui.Clear();
 	g_menu.container.SetParent(nullptr);
 	SettingsMenu_Open();
+	//MainMenu_Open();
 	
 }
 
