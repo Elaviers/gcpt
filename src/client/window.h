@@ -123,6 +123,9 @@ protected:
 	static LPCTSTR _wclassDefault;
 	static LPCTSTR _wclassDummy;
 
+	// Will use this to save/restore windowed state when going to/from fullscreen
+	RECT _windowedRect;
+
 	static void _EnsureWindowClasses();
 
 	friend class GLContext;
@@ -157,7 +160,7 @@ public:
 	void SetSizeAndPos(uint16 x, uint16 y, uint16 width, uint16 height)	{ WindowFunctions_Win32::SetHWNDSizeAndPos(_hwnd, x, y, width, height); }
 	void SetSize(uint16 width, uint16 height)							{ WindowFunctions_Win32::ResizeHWND(_hwnd, width, height); }
 	void SetPos(uint16 x, uint16 y)										{ WindowFunctions_Win32::RepositionHWND(_hwnd, x, y); }
-
+	void SetBorderlessFullscreen(bool enable);
 	bool PollEvent(WindowEvent& out);
 
 	bool IsVisible() const;

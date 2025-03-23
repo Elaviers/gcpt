@@ -3,6 +3,7 @@
 
 enum EConVarFlags : int32
 {
+	ECVAR_NO_FLAGS = 0,
 	ECVAR_REPLICATE = 1 << 1,
 	ECVAR_CHEAT = 1 << 2,
 
