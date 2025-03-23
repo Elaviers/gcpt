@@ -2,6 +2,7 @@
 #include "ui_container.h"
 #include "shared/engine.h"
 #include "ui_menubutton.h"
+#include "ui_settings.h"
 
 struct MainMenu
 {
@@ -13,6 +14,8 @@ struct MainMenu
 
 static MainMenu g_menu;
 
+void MainMenu_Open();
+
 void OnPressed_Play(UIButton&)
 {
 
@@ -20,6 +23,8 @@ void OnPressed_Play(UIButton&)
 
 void OnPressed_Settings(UIButton&)
 {
+	g_menu.container.SetParent(nullptr);
+	SettingsMenu_Open();
 	
 }
 

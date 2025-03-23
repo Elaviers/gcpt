@@ -174,6 +174,35 @@ Vector2T<uint16> Window::GetClientSize() const
 	return Vector2T<uint16>(sz.right, sz.bottom);
 }
 
+void Window::SetBorderlessFullscreen(bool enable)
+{
+	if (enable)
+	{
+		// Save the window style and position
+		::GetWindowRect(_hwnd, &_windowedRect);
+
+		// Get the monitor info
+		const HMONITOR monitor = ::MonitorFromWindow(_hwnd, MONITOR_DEFAULTTONEAREST);
+
+		AssertM(monitor, "Unable to get monitor from window");
+
+		MONITORINFO monitorInfo = {};
+		monitorInfo.cbSize = sizeof(monitorInfo);
+
+		::GetMonitorInfoA(monitor, &monitorInfo);
+		::SetWindowPos(_hwnd, NULL, 0, 0, monitorInfo.rcMonitor.right, monitorInfo.rcMonitor.bottom, 0);
+
+		// Remove the window border
+		::SetWindowLongPtr(_hwnd, GWL_STYLE, WS_POPUP | WS_VISIBLE);
+	}
+	else
+	{
+		// Restore the window style and rect
+		::SetWindowLongPtr(_hwnd, GWL_STYLE, WS_OVERLAPPEDWINDOW | WS_VISIBLE);
+		::SetWindowPos(_hwnd, NULL, _windowedRect.left, _windowedRect.top, _windowedRect.right - _windowedRect.left, _windowedRect.bottom - _windowedRect.top, 0);
+	}
+}
+
 bool Window::PollEvent(WindowEvent& out)
 {
 	MSG msg;
