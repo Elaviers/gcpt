@@ -329,7 +329,7 @@ static ConVar sv_port("sv_port", "7777", "", ECVAR_REPLICATE);
 #ifdef BUILD_CLIENT
 static ConVar sv_local_clients("sv_local_clients", "0", "Amount of local clients to use when starting a listen server");
 static void FullscreenConVarChanged();
-ConVar cl_fullscreen("cl_fullscreen", "0", "Fullscreen mode", ECVAR_NO_FLAGS, FullscreenConVarChanged); //TODO put the window fullscreen function in the constructor here
+ConVar cl_fullscreen("cl_fullscreen", "0", "Fullscreen mode", ECVAR_NO_FLAGS, FullscreenConVarChanged);
 
 static void FullscreenConVarChanged()
 {
