@@ -22,19 +22,38 @@ struct BoardInputState
 	};
 };
 
+struct TetrisPiece
+{
+	int shapeWidth;
+	int shapeHeight;
+
+	bool shape[64][64];
+
+	int x;
+	int y;
+};
+
 class Board
 {
-protected:
-	BoardInputState _inputState;
+	private:
+		BoardInputState _inputState;
+		TetrisPiece _tetrisPiece;
+		byte* _board;
+		int _boardWidth;
+		int _boardHeight;
 
-public:
-	virtual void Frame(float lastFrameTime) = 0;
+	public:
+		Board(int width, int height);
+
+		~Board();
+
+		void Frame(float lastFrameTime);
 
 #ifdef BUILD_CLIENT
-	Transform renderTransform;
+		Transform renderTransform;
 
-	virtual void Render(RenderQueue& queue) const = 0;
+		void Render(RenderQueue& queue) const;
 #endif // BUILD_CLIENT
 
-	constexpr void SetInputState(uint16 inputState) { _inputState.all = inputState; }
+		constexpr void SetInputState(uint16 inputState) { _inputState.all = inputState; }
 };
